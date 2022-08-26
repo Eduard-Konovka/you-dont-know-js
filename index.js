@@ -1,16 +1,6 @@
-const ACCESSORY_PRICE = 9.99;
-
-var bank_balance = 102.13;
-var amount = 99.99;
-
-amount = amount * 2;
-
-// может ли мы позволить себе дополнительную покупку?
-if (amount < bank_balance) {
-  console.log("Я возьму этот аксессуар!");
-  amount = amount + ACCESSORY_PRICE;
-}
-// иначе:
-else {
-  console.log("Нет, спасибо.");
-}
+import "./js/1.UpAndGoing.js";
+import "./js/2.ScopeAndClosures.js";
+import "./js/3.thisAndObjectPrototypes.js";
+import "./js/4.TypesAndGrammar.js";
+import "./js/5.AsyncAndPerformance.js";
+import "./js/6.ES6AndBeyond.js";
