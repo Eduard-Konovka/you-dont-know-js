@@ -22,7 +22,7 @@ function User() {
     username = user;
     password = pw;
 
-    return `${username} ---> ${password}`;
+    return `Fred's login is ---> "${username}"\n Fred's password is ---> "${password}"`;
   }
 
   var publicAPI = {
@@ -36,7 +36,7 @@ function User() {
 var fred = new User();
 
 const fredData = fred.login('fred', '12Battery34!');
-console.log(fredData);
+console.log(`Fred's data:\n`, fredData);
 
 // =============================================================================
 
