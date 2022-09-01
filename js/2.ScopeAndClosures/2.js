@@ -3,7 +3,7 @@ const arr = [2];
 const obj = {
   param: 3,
 
-  fn: function () {
+  fun: function () {
     return this;
   },
 
@@ -20,8 +20,27 @@ console.log(foo.call(num));
 console.log(foo.call(arr[0]));
 console.log(foo.call(obj.param));
 
-console.log(obj.fn());
+console.log(obj.fun());
 console.log(obj.arrow());
-console.log(obj.fn.call(num));
+console.log(obj.fun.call(num));
 
 // =============================================================================
+
+function fn1(str) {
+  eval(str);
+}
+
+fn1('() => console.log("eval1");');
+
+eval('() => console.log("eval2")');
+
+// =============================================================================
+
+function fn2(str) {
+  setTimeout(str, 0);
+}
+
+fn2('console.log("setTimeout1");');
+
+setTimeout('console.log("setTimeout2");', 0);
+setInterval('console.log("setInterval");', 1000);
