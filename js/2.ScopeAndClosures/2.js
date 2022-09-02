@@ -30,9 +30,9 @@ function fn1(str) {
   eval(str);
 }
 
-fn1('() => console.log("eval1");');
+fn1('console.log("eval1");');
 
-eval('() => console.log("eval2")');
+eval('var b = "eval2"; console.log(b);');
 
 // =============================================================================
 
