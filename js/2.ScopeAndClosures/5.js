@@ -53,3 +53,67 @@ foo3();
 bar3(); // 3
 
 // =============================================================================
+
+// var в цикле
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log('var ---> ', i);
+  }, i * 1000);
+}
+
+// против let в цикле
+for (let i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log('let ---> ', i);
+  }, i * 1000);
+}
+
+// IIFE
+for (var i = 1; i <= 5; i++) {
+  (function () {
+    var j = i;
+    setTimeout(function timer() {
+      console.log('IIFE ---> ', j);
+    }, j * 1000);
+  })();
+}
+
+// или с параметром равным i
+for (var i = 1; i <= 5; i++) {
+  (function (j) {
+    setTimeout(function timer() {
+      console.log('IIFE(i) ---> ', j);
+    }, j * 1000);
+  })(i);
+}
+
+// =============================================================================
+
+function CoolModule() {
+  var something = 'cool';
+  var another = [1, 2, 3];
+
+  function doSomething() {
+    console.log(something);
+  }
+
+  function doAnother() {
+    console.log(another.join(' ! '));
+  }
+
+  return {
+    doSomething: doSomething,
+    doAnother: doAnother,
+  };
+  // или
+  // return { doSomething2, doAnother2 };
+}
+var foo4 = CoolModule();
+
+foo4.doSomething(); // cool
+foo4.doAnother(); // 1 ! 2 ! 3
+// или
+// CoolModule().doSomething(); // cool
+// CoolModule().doAnother(); // 1 ! 2 ! 3
+
+// =============================================================================
