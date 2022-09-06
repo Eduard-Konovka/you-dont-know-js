@@ -117,3 +117,27 @@ foo4.doAnother(); // 1 ! 2 ! 3
 // CoolModule().doAnother(); // 1 ! 2 ! 3
 
 // =============================================================================
+
+// singleton
+var foo5 = (function CoolModule() {
+  var something = 'cool';
+  var another = [1, 2, 3];
+
+  function doSomething() {
+    console.log(something);
+  }
+
+  function doAnother() {
+    console.log(another.join(' ! '));
+  }
+
+  return {
+    doSomething: doSomething,
+    doAnother: doAnother,
+  };
+})();
+
+foo5.doSomething(); // cool
+foo5.doAnother(); // 1 ! 2 ! 3
+
+// =============================================================================
