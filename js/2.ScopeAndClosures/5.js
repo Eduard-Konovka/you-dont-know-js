@@ -143,8 +143,8 @@ foo5.doAnother(); // 1 ! 2 ! 3
 // =============================================================================
 
 // импортирует модули "foo" и "bar" целиком
-import foo from './foo.js';
-import bar from './bar.js';
+import * as foo from './foo.js';
+import * as bar from './bar.js';
 
 console.log(bar.hello('rhino')); // Let me introduce: rhino
 
