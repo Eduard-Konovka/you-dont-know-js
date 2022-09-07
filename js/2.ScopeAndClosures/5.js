@@ -1,16 +1,16 @@
-function foo() {
+function foo1() {
   var a = 1;
 
-  function bar() {
+  function bar1() {
     console.log(a);
   }
 
-  return bar;
+  return bar1;
 }
 
-var baz = foo();
+var baz1 = foo1();
 
-baz(); // 1 -- Ого, замыкание только что было раскрыто, мужики!
+baz1(); // 1 -- Ого, замыкание только что было раскрыто, мужики!
 
 // =============================================================================
 
@@ -141,3 +141,11 @@ foo5.doSomething(); // cool
 foo5.doAnother(); // 1 ! 2 ! 3
 
 // =============================================================================
+
+// импортирует модули "foo" и "bar" целиком
+import foo from './foo.js';
+import bar from './bar.js';
+
+console.log(bar.hello('rhino')); // Let me introduce: rhino
+
+foo.awesome(); // LET ME INTRODUCE: HIPPO
