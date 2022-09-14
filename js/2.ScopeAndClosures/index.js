@@ -4,4 +4,4 @@
 // import './5.js';
 // import './A.js';
 // import './B.js';
-import './C.js';
+// import './C.js';
