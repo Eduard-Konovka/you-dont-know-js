@@ -1,5 +1,5 @@
 window.showThis = function (contex) {
-  console.log(`this in showThis with ${contex}: `, this);
+  console.log(`"this" in showThis with ${contex}: `, this);
 };
 
 // Вызываем в глобальном контексте
@@ -29,7 +29,7 @@ const hotel = {
   name: 'Resort Hotel',
 
   showThis(contex) {
-    console.log(`this in hotel with ${contex}: `, this);
+    console.log(`"this" in hotel with ${contex}: `, this);
   },
 };
 
@@ -52,7 +52,24 @@ fn(hotel.showThis.bind(hotel), 'hotel 2'); // this in hotel with hotel 2: Object
 
 // =============================================================================
 
-window.eval(`console.log('this of eval() in global: ', this);`);
-eval(`console.log('this of eval() in module: ', this);`);
+window.eval(`console.log('"this" of eval() in global: ', this);`);
+eval(`console.log('"this" of eval() in module: ', this);`);
 
 // =============================================================================
+
+const obj = {
+  name: 'obj',
+  fn() {
+    const arrow = () =>
+      console.log(
+        `"this" in an arrow function inside a regular function: `,
+        this,
+      );
+    arrow();
+  },
+  arrow: () => console.log(`"this" in outer arrow function: `, this),
+};
+
+obj.fn(); // "this" in an arrow function inside a regular function: Object { name: "obj", fn: fn(), arrow: arrow() }
+obj.arrow(); // "this" in outer arrow function: undefined
+obj.arrow.bind(obj); // проигнорируется и не выполнится
