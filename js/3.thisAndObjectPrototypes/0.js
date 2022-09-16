@@ -59,10 +59,10 @@ eval(`console.log('"this" of eval() in module: ', this);`);
 
 const obj = {
   name: 'obj',
-  fn() {
+  fn(method = 'without metods') {
     const arrow = () =>
       console.log(
-        `"this" in an arrow function inside a regular function: `,
+        `"this" in an arrow function inside a regular function ${method}: `,
         this,
       );
     arrow();
@@ -71,7 +71,12 @@ const obj = {
     console.log(`"this" in outer arrow function ${method}: `, this),
 };
 
-obj.fn(); // "this" in an arrow function inside a regular function: Object { name: "obj", fn: fn(), arrow: arrow() }
+obj.fn(); // "this" in an arrow function inside a regular function without metods: Object { name: "obj", fn: fn(), arrow: arrow() }
+obj.fn.call(window, 'through metods "call"'); // "this" in an arrow function inside a regular function through metods "call": Window
+obj.fn.apply(window, ['through metods "apply"']); // "this" in an arrow function inside a regular function through metods "apply": Window
+const bindFn = obj.fn.bind(window, 'through metods "bind"'); // передастся в bindFn привязка вызова obj.fn.call(window, 'through metods "call"')
+bindFn(); // "this" in an arrow function inside a regular function through metods "bind": Window
+
 obj.arrow(); // "this" in outer arrow function without metods: undefined
 obj.arrow.call(obj, 'through metods "call"'); // "this" in outer arrow function through metods "call": undefined
 obj.arrow.apply(obj, ['through metods "apply"']); // "this" in outer arrow function through metods "apply": undefined
