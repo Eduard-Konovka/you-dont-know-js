@@ -48,16 +48,54 @@ console.log(bar2); // Object { a: 2 }
 
 // =============================================================================
 
-function foo(something) {
+function foo3(something) {
   this.a = something;
 }
 
 var obj1 = {};
 
-var bar = foo.bind(obj1);
+var bar = foo3.bind(obj1);
 bar(2);
 console.log(obj1.a); // 2
 
 var baz = new bar(3);
 console.log(obj1.a); // 2
 console.log(baz.a); // 3
+
+// =============================================================================
+
+var obj = {
+  a: 5,
+  b: function b() {
+    return this;
+  },
+  d: {
+    e: 7,
+  },
+};
+
+var h = { g: 10 };
+
+console.log('obj.b() ---> ', obj.b());
+console.log('obj.call(h) ---> ', obj.b.call(h));
+
+// =============================================================================
+
+function foo5(a, b) {
+  console.log('a:' + a + ', b:' + b);
+}
+
+// наш пустой DMZ-объект
+var ø = Object.create(null);
+
+// распаковываем массив как параметры
+foo5.apply(ø, [2, 3]); // a:2, b:3
+
+// каррируем с помощью `bind(..)`
+var bar = foo5.bind(ø, 2);
+bar(3); // a:2, b:3
+
+// =============================================================================
+
+// Пустой объект без прототипа
+var ø = Object.create(null);
