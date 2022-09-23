@@ -8,3 +8,24 @@ let idAgain = Symbol.for('id');
 console.log(id === idAgain); // true
 
 // =============================================================================
+
+var myArray = ['foo', 42, 'bar'];
+myArray.baz = 'baz';
+myArray.length; // 3
+myArray.baz; // "baz"
+console.log(myArray, myArray.baz);
+
+// =============================================================================
+
+var myObject = {};
+Object.defineProperty(myObject, 'a', {
+  value: 2,
+  writable: false, // не перезаписываемо!
+  configurable: true,
+  enumerable: true,
+});
+// myObject.a = 3;
+console.log(myObject.a); // 2
+
+console.log(Object.getOwnPropertyDescriptor(myObject, 'a'));
+// =============================================================================
