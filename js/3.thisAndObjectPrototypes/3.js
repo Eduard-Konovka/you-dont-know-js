@@ -17,16 +17,24 @@ console.log(myArray, myArray.baz);
 
 // =============================================================================
 
-var myObject = {};
-Object.defineProperty(myObject, 'a', {
+var obj1 = {};
+Object.defineProperty(obj1, 'a', {
   value: 2,
   writable: false, // не перезаписываемо!
   configurable: true,
   enumerable: true,
 });
-// myObject.a = 3;
-console.log(myObject.a); // 2
+// obj.a = 3;
+console.log(obj1.a); // 2
 
-console.log(Object.getOwnPropertyDescriptor(myObject, 'a'));
+console.log(Object.getOwnPropertyDescriptor(obj1, 'a'));
+
+// =============================================================================
+
+var obj2 = {
+  a: undefined,
+};
+console.log('obj2.a --->', obj2.a); // undefined
+console.log('obj2.b --->', obj2.b); // undefined
 
 // =============================================================================
