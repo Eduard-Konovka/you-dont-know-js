@@ -53,3 +53,24 @@ obj3.a = 2;
 console.log('obj3.a --->', obj3.a); // 4
 
 // =============================================================================
+
+var obj4 = {
+  a: 2,
+};
+console.log("'a' in obj4 --->", 'a' in obj4); // true
+console.log("'b' in obj4 --->", 'b' in obj4); // false
+console.log("obj4.hasOwnProperty('a') --->", obj4.hasOwnProperty('a')); // true
+console.log("obj4.hasOwnProperty('b') --->", obj4.hasOwnProperty('b')); // false
+
+// =============================================================================
+
+var obj5 = Object.create(null);
+
+console.log("'b' in obj5 --->", 'a' in obj5); // false
+// console.log("obj5.hasOwnProperty('a') --->", obj5.hasOwnProperty('b')); // Uncaught TypeError: obj5.hasOwnProperty is not a function
+console.log(
+  "Object.prototype.hasOwnProperty.call(obj5, 'a') --->",
+  Object.prototype.hasOwnProperty.call(obj5, 'a'),
+);
+
+// =============================================================================
