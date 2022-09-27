@@ -74,3 +74,25 @@ console.log(
 );
 
 // =============================================================================
+
+var obj6 = {};
+Object.defineProperty(
+  obj6,
+  'a',
+  // сделаем `a` перечисляемой, как обычно
+  { enumerable: true, value: 2 },
+);
+Object.defineProperty(
+  obj6,
+  'b',
+  // сделаем `b` НЕперечисляемой
+  { enumerable: false, value: 3 },
+);
+obj6.b; // 3
+'b' in obj6; // true
+obj6.hasOwnProperty('b'); // true
+// .......
+for (var k in obj6) {
+  console.log(k, obj6[k]);
+}
+// "a" 2
