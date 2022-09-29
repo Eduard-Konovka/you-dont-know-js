@@ -96,3 +96,19 @@ for (var k in obj6) {
   console.log(k, obj6[k]);
 }
 // "a" 2
+
+console.log(
+  "obj6.propertyIsEnumerable('a') --->",
+  obj6.propertyIsEnumerable('a'),
+); // true
+console.log(
+  "obj6.propertyIsEnumerable('b') --->",
+  obj6.propertyIsEnumerable('b'),
+); // false
+console.log('Object.keys(obj6) --->', Object.keys(obj6)); // ["a"]
+console.log(
+  'Object.getOwnPropertyNames(obj6) --->',
+  Object.getOwnPropertyNames(obj6),
+); // ["a", "b"]
+
+// =============================================================================
