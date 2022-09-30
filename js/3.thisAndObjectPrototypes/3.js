@@ -113,6 +113,26 @@ console.log(
 
 // =============================================================================
 
+const hotel = ['stars', 5, 'capacity', 100];
+
+hotel['name'] = 'Resort Hotel';
+
+// Перебор ключей объекта hotel
+for (const key in hotel) {
+  console.log('Key: ', key);
+}
+// Key: 0
+// Key: 1
+// Key: 2
+// Key: 3
+// Key: name
+
+console.log('hotel --->', hotel); // hotel ---> Array(4) [ "stars", 5, "capacity", 100 ]
+console.log('hotel.name --->', hotel.name); // hotel.name ---> Resort Hotel
+console.log('hotel["name"] --->', hotel['name']); // hotel["name"] ---> Resort Hotel
+
+// =============================================================================
+
 var randoms = {
   [Symbol.iterator]: function () {
     return {
