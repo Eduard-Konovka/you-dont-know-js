@@ -117,19 +117,37 @@ const hotel = ['stars', 5, 'capacity', 100];
 
 hotel['name'] = 'Resort Hotel';
 
-// Перебор ключей объекта hotel
+// Перебор ключей массива hotel
 for (const key in hotel) {
-  console.log('Key: ', key);
+  console.log('Key --->', key);
 }
-// Key: 0
-// Key: 1
-// Key: 2
-// Key: 3
-// Key: name
+// Key ---> 0
+// Key ---> 1
+// Key ---> 2
+// Key ---> 3
+// Key ---> name
 
 console.log('hotel --->', hotel); // hotel ---> Array(4) [ "stars", 5, "capacity", 100 ]
 console.log('hotel.name --->', hotel.name); // hotel.name ---> Resort Hotel
 console.log('hotel["name"] --->', hotel['name']); // hotel["name"] ---> Resort Hotel
+
+for (let i = 0; i < hotel.length; i++) {
+  console.log(`hotel[${i}] --->`, hotel[i]);
+}
+// hotel[0] ---> stars
+// hotel[1] ---> 5
+// hotel[2] ---> capacity
+// hotel[3] ---> 100
+
+// =============================================================================
+
+// перебор массива вручную, используя встроенный @@iterator
+var it = hotel[Symbol.iterator]();
+console.log('it.next() 1 --->', it.next()); // Object { value: "stars", done: false }
+console.log('it.next() 2 --->', it.next()); // Object { value: 5, done: false }
+console.log('it.next() 3 --->', it.next()); // Object { value: "capacity", done: false }
+console.log('it.next() 4 --->', it.next()); // Object { value: 100, done: false }
+console.log('it.next() 5 --->', it.next()); // Object { value: undefined, done: true }
 
 // =============================================================================
 
