@@ -139,7 +139,14 @@ for (let i = 0; i < hotel.length; i++) {
 // hotel[2] ---> capacity
 // hotel[3] ---> 100
 
-// =============================================================================
+// перебор массива, используя цикл for..of
+for (var value of hotel) {
+  console.log('value --->', value);
+}
+// hotel[0] ---> stars
+// hotel[1] ---> 5
+// hotel[2] ---> capacity
+// hotel[3] ---> 100
 
 // перебор массива вручную, используя встроенный @@iterator
 var it = hotel[Symbol.iterator]();
