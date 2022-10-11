@@ -122,3 +122,12 @@ b11.speak();
 b22.speak();
 
 // =============================================================================
+
+// устанавливаем связь между `Foo` и `Bar`
+console.log('Foo2 is prototype of Bar2? --->', Foo2.isPrototypeOf(Bar2)); // true
+console.log('Bar2 inherits Foo2? --->', Object.getPrototypeOf(Bar2) === Foo2); // true
+
+// устанавливаем связь между `b1` и `Foo` и `Bar`
+console.log('Foo2 is prototype of b11? --->', Foo2.isPrototypeOf(b11)); // true
+console.log('Bar2 is prototype of b11?--->', Bar2.isPrototypeOf(b11)); // true
+console.log('b11 inherits Bar2? --->', Object.getPrototypeOf(b11) === Bar2); // true
